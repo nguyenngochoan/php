@@ -13,7 +13,14 @@
 
   //préparation de la requête
   // cmd + maj + / : pour les commentaires
-  $query = $db->prepare("INSERT INTO book (title, author, publish_date, body ) VALUES (:title, :author, :publish_date, :body )");
+  if($_POST['op']== 'create'){
+    $query = $db->prepare("INSERT INTO book (title, author, publish_date, body ) VALUES (:title, :author, :publish_date, :body )");
+  } else if($_POST['op']== 'update'){
+    $query = $db->prepare("UPDATE book
+                            SET (title=:title, author=:author, publish_date=:publish_date, body=:body)
+                            WHERE id=:id");
+                            $query->bindValue(':id', $_POST['book_id']);
+  }
   // ajouter les valeurs
   $query->bindValue(':title', $_POST['title']);
   $query->bindValue(':author',$_POST['author']);
@@ -29,6 +36,6 @@ var_dump($result);
 
 //On redirige l'utilisateur vers la page du formulaire
 // TODO: redirige vers la page save book
-    header('location: add_book.php');
+    header('location: admin.php');
 
  ?>

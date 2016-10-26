@@ -16,12 +16,7 @@
      </thead>
 
      <tbody>
-      <tr>
-         <td>1</td>
-         <td>Gotlib...</td>
-        <td>Gotlib</td>
-          <td>12/06/2014</td>
-      </tr>
+
 <?php
 /* Méthode 1 :
 foreach($books as $book){
@@ -40,6 +35,9 @@ foreach($books as $book){
       <td><?php print  $book['title']; ?> </td>
       <td><?php print  $book['author']; ?></td>
       <td><?php print  date('d/m/Y',$book['publish_date']); ?></td>
+      <td>
+        <a class="btn_btn-info" href="add_book.php?id=<?php print $book['id']; ?>">Modifier</a>
+      </td>
     </tr>
   <?php endforeach; ?>
 
