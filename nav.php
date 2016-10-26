@@ -9,6 +9,8 @@
       </button>
       <a class="navbar-brand" href="index.php">Home</a>
       <a class="navbar-brand" href="add_book.php">Créer un livre</a>
+      <a class="navbar-brand" href="admin.php">Admistration</a>
+
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right" role="form">
